@@ -13,8 +13,13 @@
     <form class="form" method="post" action="{{ route('user.doLogin')  }}">
         @csrf
         <input name="email" class="input" type="email" placeholder="введите почту">
-        <p class="form__error">а как же почта?</p>
+        @if ($errors->has('email'))
+            <p class="form__error">{{ $errors->first('email') }}</p>
+        @endif
         <input name="password" class="input" type="password" placeholder="введите пароль">
+        @if ($errors->has('password'))
+            <p class="form__error">{{ $errors->first('password') }}</p>
+        @endif
         <button class="btn btn_accent">войти</button>
     </form>
 @endsection
