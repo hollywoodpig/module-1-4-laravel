@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Models\App;
+use Illuminate\Support\Carbon;
 
 class AppController extends Controller {
     // add
@@ -39,5 +40,17 @@ class AppController extends Controller {
         }
 
         return redirect()->route('app.add');
+    }
+
+    // view
+
+    public function view($id) {
+        $app = App::find($id);
+
+        if (App::where('id', $id)->exists()) {
+            return View::make('pages.app.view', ['app' => $app]);
+        }
+
+        return abort(404);
     }
 }

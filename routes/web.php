@@ -38,4 +38,6 @@ Route::group(['prefix' => 'auth'], function() {
 Route::group(['prefix' => 'app'], function() {
     Route::get('add', [AppController::class, 'add'])->name('app.add');
     Route::post('doAdd', [AppController::class, 'doAdd'])->name('app.doAdd');
+
+    Route::get('{id}', [AppController::class, 'view'])->name('app.view');
 });

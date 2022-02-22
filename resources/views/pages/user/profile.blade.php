@@ -22,12 +22,17 @@
 @section('content')
     <div class="user-apps">
         @forelse ($apps as $app)
-            <a href="#" class="user-app">
-                <strong class="user-app__title">{{ $app->title }}</strong>
+            <a href="{{ route('app.view', $app->id) }}" class="user-app">
+                <strong class="user-app__title">
+                    {{ $app->title }}
+                    @if ($app->solved)
+                        <b class="text-accent">(Решено)</b>
+                    @endif
+                </strong>
                 <p class="user-app__text">{{ $app->text }}</p>
             </a>
         @empty
-            <p>заявок нет(</p>
+            <p>у вас пока нет заявок :(</p>
         @endforelse
     </div>
 @endsection

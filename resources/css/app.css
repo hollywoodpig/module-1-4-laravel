@@ -368,6 +368,7 @@ textarea.input {
 /* app full */
 
 .app-full {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -414,6 +415,18 @@ textarea.input {
 
 .inline_sm {
     column-gap: 0.5rem;
+}
+
+/* accent text */
+
+.text-accent {
+    color: var(--c-accent);
+}
+
+/* text muted */
+
+.text-muted {
+    color: var(--c-text-muted);
 }
 
 /* === desktop first === */
