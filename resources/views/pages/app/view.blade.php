@@ -7,7 +7,12 @@
 
 @section('header-content')
     @auth
-        <a href="{{ route('user.profile') }}" class="btn">профиль</a>
+        @if (auth()->user()->admin)
+            <a href="{{ route('user.profile') }}" class="btn">профиль</a>
+            <a href="{{ route('admin.dashboard') }}" class="btn">панель</a>
+        @else
+            <a href="{{ route('user.profile') }}" class="btn">профиль</a>
+        @endif
     @endauth
     @guest
         <a href="{{ route('auth.login') }}" class="btn">войти</a>
@@ -43,7 +48,7 @@
         @auth
             @if (auth()->user()->id == $app->user_id || auth()->user()->admin)
                 <div class="inline inline_sm">
-                    <a href="#" class="btn">редактировать</a>
+                    <a href="{{ route('app.edit', $app->id) }}" class="btn">редактировать</a>
                     <a href="#" class="btn btn_accent">удалить</a>
                 </div>
             @endif

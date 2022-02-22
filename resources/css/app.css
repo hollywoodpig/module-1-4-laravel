@@ -429,6 +429,42 @@ textarea.input {
     color: var(--c-text-muted);
 }
 
+/* checkbox */
+
+.checkbox {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.checkbox__box {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: var(--c-secondary);
+    border: 1px solid var(--c-border);
+    border-radius: calc(var(--bdrs) / 2);
+    position: relative;
+}
+
+.checkbox__input {
+    display: none;
+}
+
+.checkbox__input:checked ~ .checkbox__box::after {
+    content: '✓';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--c-accent);
+}
+
+.checkbox__text {
+    line-height: 1;
+    user-select: none;
+}
+
 /* === desktop first === */
 
 /* from xl to xxl */

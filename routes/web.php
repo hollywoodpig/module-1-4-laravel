@@ -19,7 +19,7 @@ use \App\Http\Controllers\AppController;
 
 // user
 
-Route::get('/', [UserController::class, 'home'])->name('user.home');
+Route::get('', [UserController::class, 'home'])->name('user.home');
 Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
 
 // admin
@@ -49,4 +49,9 @@ Route::group(['prefix' => 'app'], function() {
     Route::post('doAdd', [AppController::class, 'doAdd'])->name('app.doAdd');
 
     Route::get('{id}', [AppController::class, 'view'])->name('app.view');
+});
+
+Route::middleware(['app'])->group(function() {
+    Route::get('app/{id}/edit', [AppController::class, 'edit'])->name('app.edit');
+    Route::post('app/{id}/doEdit', [AppController::class, 'doEdit'])->name('app.doEdit');
 });

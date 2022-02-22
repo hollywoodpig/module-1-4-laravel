@@ -53,4 +53,41 @@ class AppController extends Controller {
 
         return abort(404);
     }
+
+    // edit
+
+    public function edit($id) {
+        $app = App::find($id);
+
+        if (App::where('id', $id)->exists()) {
+            return View::make('pages.app.edit', ['app' => $app]);
+        }
+
+        return abort(404);
+    }
+
+    public function doEdit(Request $request, $id) {
+        $request->validate([
+            'title' => 'string',
+            'text' => 'string',
+            'img_before' => 'image',
+            'img_after' => 'image'
+        ]);
+
+        $app = App::find($id);
+
+        $app->title = $request->has('title') ? $request->input('title') : $app->title;
+        $app->text = $request->has('text') ? $request->input('text') : $app->text;
+        $app->img_before = $request->hasFile('img_before') ? base64_encode(file_get_contents($request->file('img_before'))) : $app->img_before;
+        $app->img_after = $request->hasFile('img_after') ? base64_encode(file_get_contents($request->file('img_after'))) : $app->img_after;
+        $app->solved = $app->solved;
+
+        if (auth()->user()->admin) {
+            $app->solved = $request->has('solved');
+        }
+
+        $app->save();
+
+        return redirect()->route('app.view', $id);
+    }
 }

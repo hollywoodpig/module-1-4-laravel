@@ -16,7 +16,7 @@
 @endsection
 
 @section('content')
-    <p>у вас неограниченная власть, делайте вообще что хотите</p>
+    <p class="text-muted">у вас неограниченная власть, делайте вообще что хотите</p>
     <div class="inline inline_sm">
         <a href="#" class="btn">список заявок</a>
         <a href="#" class="btn">список пользователей</a>
