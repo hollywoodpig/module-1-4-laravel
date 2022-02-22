@@ -17,7 +17,7 @@
             <div class="user">
                 <div class="inline inline_sm inline_between">
                     <h3 class="user__name">{{ $user->name }}</h3>
-                    <a href="#" @class([
+                    <a href="{{ route('admin.appsByUser', $user->id) }}" @class([
                         'text-accent',
                         'disabled' => $user->apps->count() < 1
                     ])>

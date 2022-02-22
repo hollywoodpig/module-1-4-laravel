@@ -30,6 +30,7 @@ Route::middleware(['admin'])->group(function() {
     Route::get('admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
 
     Route::get('admin/apps', [AdminController::class, 'apps'])->name('admin.apps');
+    Route::get('admin/apps/user/{id}', [AdminController::class, 'appsByUser'])->name('admin.appsByUser');
 
     Route::get('admin/users', [AdminController::class, 'users'])->name('admin.users');
 });

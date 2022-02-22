@@ -22,6 +22,12 @@ class AdminController extends Controller {
         return View::make('pages.admin.apps', ['apps' => $apps]);
     }
 
+    public function appsByUser($id) {
+        $apps = App::where('user_id', $id)->get();
+
+        return View::make('pages.admin.apps', ['apps' => $apps]);
+    }
+
     // users
 
     public function users() {
