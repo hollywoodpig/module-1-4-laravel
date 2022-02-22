@@ -6,11 +6,11 @@
 @section('title') войти @endsection
 
 @section('header-content')
-    <a href="{{ route('user.register') }}" class="btn">Создать аккаунт</a>
+    <a href="{{ route('auth.register') }}" class="btn">создать аккаунт</a>
 @endsection
 
 @section('content')
-    <form class="form" method="post" action="{{ route('user.doLogin')  }}">
+    <form class="form" method="post" action="{{ route('auth.doLogin')  }}">
         @csrf
         <input name="email" class="input" type="email" placeholder="введите почту">
         @if ($errors->has('email'))

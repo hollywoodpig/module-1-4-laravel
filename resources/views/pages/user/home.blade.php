@@ -7,11 +7,11 @@
 
 @section('header-content')
     @auth
-        <a href="{{ route('user.dashboard') }}" class="btn">Профиль</a>
+        <a href="{{ route('user.profile') }}" class="btn">профиль</a>
     @endauth
     @guest
-        <a href="{{ route('user.login') }}" class="btn">Войти</a>
-        <a href="{{ route('user.register') }}" class="btn">Создать аккаунт</a>
+        <a href="{{ route('auth.login') }}" class="btn">войти</a>
+        <a href="{{ route('auth.register') }}" class="btn">создать аккаунт</a>
     @endguest
 @endsection
 

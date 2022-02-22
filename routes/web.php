@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\View;
 use \App\Http\Controllers\UserController;
+use \App\Http\Controllers\AppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,26 @@ use \App\Http\Controllers\UserController;
 |
 */
 
+// user
+
 Route::get('/', [UserController::class, 'home'])->name('user.home');
-Route::get('dashboard', [UserController::class, 'dashboard'])->name('user.dashboard');
-Route::get('login', [UserController::class, 'login'])->name('user.login');
-Route::get('register', [UserController::class, 'register'])->name('user.register');
-Route::post('doLogin', [UserController::class, 'doLogin'])->name('user.doLogin');
-Route::post('doRegister', [UserController::class, 'doRegister'])->name('user.doRegister');
-Route::post('logout', [UserController::class, 'logout'])->name('user.logout');
+Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
+
+// auth
+
+Route::group(['prefix' => 'auth'], function() {
+    Route::get('login', [AuthController::class, 'login'])->name('auth.login');
+    Route::post('doLogin', [AuthController::class, 'doLogin'])->name('auth.doLogin');
+
+    Route::get('register', [AuthController::class, 'register'])->name('auth.register');
+    Route::post('doRegister', [AuthController::class, 'doRegister'])->name('auth.doRegister');
+
+    Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
+});
+
+// apps
+
+Route::group(['prefix' => 'app'], function() {
+    Route::get('add', [AppController::class, 'add'])->name('app.add');
+    Route::post('doAdd', [AppController::class, 'doAdd'])->name('app.doAdd');
+});

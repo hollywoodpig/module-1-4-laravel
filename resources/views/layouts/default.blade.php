@@ -24,7 +24,7 @@
                 @yield('content')
             </div>
         </main>
-        <footer class="footer">© Все права защищены, ну кроме наших прав на этот проект</footer>
+        <footer class="footer">© все права защищены, ну кроме наших прав на этот проект</footer>
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>
