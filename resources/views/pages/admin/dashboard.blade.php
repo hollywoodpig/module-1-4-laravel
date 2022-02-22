@@ -18,7 +18,7 @@
 @section('content')
     <p class="text-muted">у вас неограниченная власть, делайте вообще что хотите</p>
     <div class="inline inline_sm">
-        <a href="#" class="btn">список заявок</a>
+        <a href="{{ route('admin.apps') }}" class="btn">список заявок</a>
         <a href="#" class="btn">список пользователей</a>
     </div>
 @endsection

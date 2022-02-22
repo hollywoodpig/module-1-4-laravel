@@ -24,10 +24,9 @@ Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
 
 // admin
 
-
-
 Route::middleware(['admin'])->group(function() {
-    Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('admin', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('admin/apps', [AdminController::class, 'apps'])->name('admin.apps');
 });
 
 // auth
