@@ -53,4 +53,7 @@ Route::group(['prefix' => 'app'], function() {
 Route::middleware(['app'])->group(function() {
     Route::get('app/{id}/edit', [AppController::class, 'edit'])->name('app.edit');
     Route::post('app/{id}/doEdit', [AppController::class, 'doEdit'])->name('app.doEdit');
+
+    Route::get('app/{id}/remove', [AppController::class, 'remove'])->name('app.remove');
+    Route::post('app/{id}/doRemove', [AppController::class, 'doRemove'])->name('app.doRemove');
 });

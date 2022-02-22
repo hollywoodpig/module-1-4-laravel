@@ -49,7 +49,7 @@
             @if (auth()->user()->id == $app->user_id || auth()->user()->admin)
                 <div class="inline inline_sm">
                     <a href="{{ route('app.edit', $app->id) }}" class="btn">редактировать</a>
-                    <a href="#" class="btn btn_accent">удалить</a>
+                    <a href="{{ route('app.remove', $app->id) }}" class="btn btn_accent">удалить</a>
                 </div>
             @endif
         @endauth

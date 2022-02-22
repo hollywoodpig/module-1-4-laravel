@@ -33,4 +33,5 @@
             <p>пока решенных заявок нет :(</p>
         @endforelse
     </div>
+    <span class="text-muted">{{ session()->get('success') }}</span>
 @endsection

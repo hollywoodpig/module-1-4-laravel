@@ -90,4 +90,16 @@ class AppController extends Controller {
 
         return redirect()->route('app.view', $id);
     }
+
+    // remove
+
+    public function remove($id) {
+        return View::make('pages.app.remove', ['id' => $id]);
+    }
+
+    public function doRemove($id) {
+        App::find($id)->delete();
+
+        return redirect()->route('user.home')->with('success', 'заявка была удалена ;(');
+    }
 }
