@@ -7,7 +7,6 @@
 
 @section('header-content')
     @auth
-        <a href="{{ route('user.profile') }}" class="btn">профиль</a>
         <a href="{{ route('admin.dashboard') }}" class="btn">панель</a>
     @endauth
 @endsection

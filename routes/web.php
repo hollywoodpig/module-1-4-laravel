@@ -20,7 +20,9 @@ use \App\Http\Controllers\AppController;
 // user
 
 Route::get('', [UserController::class, 'home'])->name('user.home');
-Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
+Route::middleware(['notAdmin'])->group(function() {
+    Route::get('profile', [UserController::class, 'profile'])->name('user.profile');
+});
 
 // admin
 
