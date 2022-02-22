@@ -358,6 +358,7 @@ template {
     --c-text-muted: #a8a8a9;
     --c-text: #242425;
     --c-accent: #ff4f4b;
+    --s-small: 12px;
     --s-text: 14px;
     --s-h1: 21px;
     --line-height: 1.6;
@@ -446,6 +447,10 @@ select {
 
 button {
     cursor: pointer;
+}
+
+small {
+    font-size: var(--s-small);
 }
 
 textarea {
@@ -788,6 +793,10 @@ textarea.input {
          column-gap: 0.5rem;
 }
 
+.inline_between {
+    justify-content: space-between;
+}
+
 /* accent text */
 
 .text-accent {
@@ -839,82 +848,36 @@ textarea.input {
             user-select: none;
 }
 
-/* === desktop first === */
+/* users */
 
-/* from xl to xxl */
-@media (max-width : 1400px) {
-
+.users {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-/* from lg to xl */
-@media (max-width : 1200px) {
+/* user */
 
+.user {
+    flex: 1 1 20rem;
+    border: 1px solid var(--c-border);
+    padding: 1rem;
+    border-radius: var(--bdrs);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--c-text-muted);
 }
 
-/* from md to lg */
-@media (max-width : 992px) {
-
+.user__name {
+    color: var(--c-text);
 }
 
-/* from sm to md */
-@media (max-width : 768px) {
+/* disabled */
 
-}
-
-/* from xs to sm */
-@media (max-width : 576px) {
-
-}
-
-/* === mobile first === */
-
-/* xs */
-@media (min-width : 0) {
-    .apps {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .apps .app:nth-child(2n-1):nth-last-of-type(1) {
-        grid-column: span 2;
-    }
-}
-
-/* sm */
-@media (min-width : 576px) {
-    .apps {
-        grid-template-columns: repeat(4, 1fr);
-    }
-
-    .apps .app:nth-child(4n-1):nth-last-of-type(1) {
-        grid-column: span 2;
-    }
-
-    .apps .app:nth-child(4n-2):nth-last-of-type(1) {
-        grid-column: span 3;
-    }
-
-    .apps .app:nth-child(4n-3):nth-last-of-type(1) {
-        grid-column: span 4;
-    }
-}
-
-/* sm */
-@media (min-width : 768px) {
-
-}
-
-/* lg */
-@media (min-width : 992px) {
-
-}
-
-/* xl */
-@media (min-width : 1200px) {
-
-}
-
-/* xxl */
-@media (min-width : 1400px) {
-
+.disabled {
+    pointer-events: none;
+    opacity: 0.6;
 }
 

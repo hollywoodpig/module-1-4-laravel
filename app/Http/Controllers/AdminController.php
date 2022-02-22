@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\App;
-use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class AdminController extends Controller {
@@ -19,5 +20,13 @@ class AdminController extends Controller {
         $apps = App::all();
 
         return View::make('pages.admin.apps', ['apps' => $apps]);
+    }
+
+    // users
+
+    public function users() {
+        $users = User::all()->except(Auth::id());
+
+        return View::make('pages.admin.users', ['users' => $users]);
     }
 }
