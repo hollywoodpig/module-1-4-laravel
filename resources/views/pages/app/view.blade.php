@@ -33,18 +33,20 @@
             <b @class([
                 'text-accent' => $app->solved
             ])>
-                {{ $app->solved ? 'Решено' : 'Пока не решено' }}
+                {{ $app->solved ? 'решено' : 'пока не решено' }}
             </b>
             <em class="text-muted">{{ $app->created_at->diffForHumans() }}</em>
         </div>
         <p class="app-full__text">
             {{ $app->text }}
         </p>
-        @if (auth()->user() && (auth()->user()->id == $app->user_id))
-            <div class="inline inline_sm">
-                <a href="#" class="btn btn_accent">Удалить</a>
-                <a href="#" class="btn">Редактировать</a>
-            </div>
-        @endif
+        @auth
+            @if (auth()->user()->id == $app->user_id || auth()->user()->admin)
+                <div class="inline inline_sm">
+                    <a href="#" class="btn">редактировать</a>
+                    <a href="#" class="btn btn_accent">удалить</a>
+                </div>
+            @endif
+        @endauth
     </div>
 @endsection

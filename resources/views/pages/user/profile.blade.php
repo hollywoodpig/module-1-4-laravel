@@ -8,6 +8,9 @@
 @section('header-content')
     @auth
         <a href="{{ route('app.add') }}" class="btn">добавить заявку</a>
+        @if (auth()->user()->admin)
+            <a href="{{ route('admin.dashboard') }}" class="btn">панель</a>
+        @endif
         <form method="post" action="{{ route('auth.logout')  }}">
             @csrf
             <button class="btn">выйти</button>
