@@ -1,6 +1,9 @@
 @extends('layouts.default')
 
-@section('meta-description') тут решенные проблемы, все дела @endsection
+@section('meta-description')
+    сделаем лучше вместе. это, в общем, сайт администрации нашего воображаемого города, и тут, короче, вы можете выкладывать свои заявки на исправление косяков в нашем воображаемом городе. вот. worldskills, как говорится, в шоке
+@endsection
+
 @section('meta-title') решенные проблемы @endsection
 
 @section('title') решенные проблемы @endsection
