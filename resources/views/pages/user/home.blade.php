@@ -20,6 +20,7 @@
 @endsection
 
 @section('content')
+    <p class="text-muted"><b class="text-accent">сделаем лучше вместе.</b> это, в общем, сайт администрации нашего воображаемого города, и тут, короче, вы можете выкладывать свои заявки на исправление косяков в нашем воображаемом городе. вот. worldskills, как говорится, в шоке</p>
     <div class="apps">
         @forelse ($solved_apps as $app)
             <a href="{{ route('app.view', $app->id) }}" class="app">

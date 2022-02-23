@@ -14,10 +14,14 @@ class NotAdminMiddleware
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      */
     public function handle(Request $request, Closure $next) {
-        if (!auth()->user()->admin) {
+        if (auth()->check() && !auth()->user()->admin) {
             return $next($request);
         }
 
-        return redirect()->route('admin.dashboard');
+        if (auth()->check() && auth()->user()->admin) {
+            return redirect()->route('admin.dashboard');
+        }
+
+        return abort(404);
     }
 }
