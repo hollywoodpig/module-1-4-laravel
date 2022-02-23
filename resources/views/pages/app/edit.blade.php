@@ -19,17 +19,17 @@
     <form class="form" method="post" action="{{ route('app.doEdit', $app->id) }}" enctype="multipart/form-data">
         @csrf
         @if (!auth()->user()->admin)
-            <input value="{{ $app->title }}" name="title" class="input" type="text" placeholder="Название заявки">
+            <input value="{{ $app->title }}" name="title" class="input" type="text" placeholder="название заявки">
             @if ($errors->has('title'))
                 <p class="form__error">{{ $errors->first('title') }}</p>
             @endif
-            <textarea name="text" class="input" placeholder="Текст заявки">{{ $app->text }}</textarea>
+            <textarea name="text" class="input" placeholder="текст заявки">{{ $app->text }}</textarea>
             @if ($errors->has('text'))
                 <p class="form__error">{{ $errors->first('text') }}</p>
             @endif
             <label class="input input_file">
                 <input name="img_before" type="file">
-                <p class="input_file__label">Изображение до</p>
+                <p class="input_file__label">изображение до</p>
             </label>
             @if ($errors->has('img_before'))
                 <p class="form__error">{{ $errors->first('img_before') }}</p>
@@ -38,7 +38,7 @@
         @if (auth()->user()->admin)
             <label class="input input_file">
                 <input name="img_after" type="file">
-                <p class="input_file__label">Изображение после</p>
+                <p class="input_file__label">изображение после</p>
             </label>
             @if ($errors->has('img_after'))
                 <p class="form__error">{{ $errors->first('img_after') }}</p>
@@ -53,7 +53,7 @@
             @endif
         @endif
         <div class="inline inline_sm">
-            <button class="btn btn_accent">отправить</button>
+            <button class="btn btn_accent">изменить</button>
             <a href="{{ route('app.view', $app->id) }}" class="btn">я передумал</a>
         </div>
     </form>

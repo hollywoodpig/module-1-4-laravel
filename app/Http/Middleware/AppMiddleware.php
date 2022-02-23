@@ -34,6 +34,6 @@ class AppMiddleware
             return $next($request);
         }
 
-        return abort(404);
+        return redirect()->route('app.view', $app_id);
     }
 }
