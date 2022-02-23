@@ -22,4 +22,5 @@
         @endif
         <button class="btn btn_accent">войти</button>
     </form>
+    <p class="text-muted">{{ session()->get('error') }}</p>
 @endsection

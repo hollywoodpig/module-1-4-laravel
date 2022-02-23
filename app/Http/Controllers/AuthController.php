@@ -42,7 +42,7 @@ class AuthController extends Controller {
             return redirect()->route('user.profile');
         }
 
-        return redirect()->route('auth.login');
+        return redirect()->route('auth.login')->with('error', 'такого пользователя с таким паролем не существует, вы что-то неправильно ввели');
     }
 
     // register
