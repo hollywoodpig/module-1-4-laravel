@@ -28,6 +28,7 @@
                 <small class="user__date">создал аккаунт {{ $user->created_at->diffForHumans() }}</small>
             </div>
         @empty
+            <p>пользователей нет :(</p>
         @endforelse
     </div>
 @endsection
