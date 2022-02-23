@@ -1,9 +1,9 @@
 @extends('layouts.default')
 
-@section('meta-description') ну, тут все заявки, в общем @endsection
-@section('meta-title') все заявки @endsection
+@section('meta-description') ну, тут {{ $title }}, в общем @endsection
+@section('meta-title') {{ $title }} @endsection
 
-@section('title') все заявки @endsection
+@section('title') {{ $title }} @endsection
 
 @section('header-content')
     @auth

@@ -19,13 +19,18 @@ class AdminController extends Controller {
     public function apps() {
         $apps = App::all();
 
-        return View::make('pages.admin.apps', ['apps' => $apps]);
+        return View::make('pages.admin.apps', ['apps' => $apps, 'title' => 'все заявки']);
     }
 
     public function appsByUser($id) {
-        $apps = App::where('user_id', $id)->get();
+        if (User::where('id', $id)->exists()) {
+            $apps = App::where('user_id', $id)->get();
+            $user_name = User::where('id', $id)->value('name');
 
-        return View::make('pages.admin.apps', ['apps' => $apps]);
+            return View::make('pages.admin.apps', ['apps' => $apps, 'title' => "заявки пользователя \"$user_name\""]);
+        }
+
+        return abort(404);
     }
 
     // users
