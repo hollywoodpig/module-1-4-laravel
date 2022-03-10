@@ -26,9 +26,6 @@ class CreateAppsTable extends Migration
 
             $table->foreign('user_id')->references('id')->on('users');
         });
-
-        DB::statement("ALTER TABLE apps MODIFY COLUMN img_before LONGBLOB");
-        DB::statement("ALTER TABLE apps MODIFY COLUMN img_after LONGBLOB");
     }
 
     /**
